@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=960;y=15"/>
+      <property name="size" type="uint" value="29"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="15"/>
+        <value type="int" value="9"/>
+        <value type="int" value="29"/>
+        <value type="int" value="10"/>
+        <value type="int" value="8"/>
+        <value type="int" value="16"/>
+        <value type="int" value="18"/>
+        <value type="int" value="3"/>
+        <value type="int" value="12"/>
+        <value type="int" value="2"/>
+        <value type="int" value="4"/>
+        <value type="int" value="1"/>
+      </property>
+      <property name="length" type="uint" value="100"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="background-color" type="array">
+        <value type="uint" value="499"/>
+        <value type="uint" value="11646"/>
+        <value type="uint" value="11298"/>
+        <value type="uint" value="65535"/>
+      </property>
+      <property name="background-alpha" type="uint" value="52"/>
+      <property name="leave-opacity" type="uint" value="57"/>
+      <property name="enter-opacity" type="uint" value="86"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+    </property>
+    <property name="dark-mode" type="bool" value="true"/>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-8" type="string" value="separator">
+      <property name="style" type="uint" value="1"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-9" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="13992975441.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-10" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="13992975462.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-15" type="string" value="whiskermenu"/>
+    <property name="plugin-16" type="string" value="tasklist">
+      <property name="include-all-monitors" type="bool" value="false"/>
+      <property name="show-handle" type="bool" value="true"/>
+      <property name="include-all-workspaces" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="sort-order" type="uint" value="4"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
+      <property name="show-wireframes" type="bool" value="false"/>
+      <property name="grouping" type="uint" value="0"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+    </property>
+    <property name="plugin-18" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-29" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15869289774.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-2" type="string" value="systray">
+      <property name="names-ordered" type="array">
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="redshift-gtk"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="networkmanager applet"/>
+      </property>
+    </property>
+    <property name="plugin-3" type="string" value="notification-plugin"/>
+    <property name="plugin-4" type="string" value="clock">
+      <property name="digital-format" type="string" value="%H:%M, %a %d-%b"/>
+    </property>
+    <property name="plugin-12" type="string" value="power-manager-plugin"/>
+    <property name="plugin-5" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    </property>
+    <property name="plugin-1" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="true"/>
+    </property>
+  </property>
+  <property name="configver" type="int" value="2"/>
+</channel>

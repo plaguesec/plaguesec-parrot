@@ -1,0 +1,62 @@
+#!/bin/sh
+
+get_user_list() {
+    for user in $(cd /home && ls); do
+	if ! getent passwd "$user" >/dev/null; then
+	    echo "WARNING: user '$user' is invalid but /home/$user exists"
+	    continue
+	fi
+	echo "$user"
+    done
+    echo "root"
+}
+
+configure_usergroups() {
+    addgroup --system wireshark || true
+    addgroup --system libvirt || true
+    groups="adm,dialout,wireshark,sudo,libvirt"
+
+    for user in $(get_user_list); do
+	echo "INFO: adding user '$user' to groups '$groups'"
+	usermod -a -G "$groups" $user || true
+    done
+}
+
+check_theme() {
+    if [ $XDG_CURRENT_DESKTOP ! "KDE" ]; then
+	:
+    else
+    	echo "/usr/sbin/sddm" > /etc/X11/default-display-manager
+	DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true dpkg-reconfigure sddm
+    fi
+}
+
+plaguesec_finish_install() {
+    # Set Plank Theme
+    sudo mv /usr/share/plaguesec-files/dock.theme /usr/share/plank/themes/Default/dock.theme
+    # Wireless Compatibility
+    sudo rm /etc/network/interfaces
+    sudo mv /etc/network/interface /etc/network/interfaces
+    cat >/etc/network/interfaces <<END
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+source /etc/network/interfaces.d/*
+# The loopback network interface
+auto lo
+iface lo inet loopback
+# The primary network interface
+auto wlan0
+END
+    # Update System
+    #apt-get update
+    
+    # Used when KDE Build Fails (Black screen with cursor after login) 
+    #sudo pkcon update -y
+      for user in $(cd /home && ls); do
+        rm /home/$user/Desktop/README.license
+    done
+}
+
+configure_usergroups
+plaguesec_finish_install
+check_theme

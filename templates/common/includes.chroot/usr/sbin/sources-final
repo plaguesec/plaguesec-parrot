@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# Writes the final sources.list file
+#
+
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+#RELEASE="bullseye"
+
+#cat << EOF > $CHROOT/etc/apt/sources.list
+# See https://wiki.debian.org/SourcesList for more information.
+#deb http://deb.debian.org/debian $RELEASE main
+#deb-src http://deb.debian.org/debian $RELEASE main
+
+#deb http://deb.debian.org/debian $RELEASE-updates main
+#deb-src http://deb.debian.org/debian $RELEASE-updates main
+
+#deb http://security.debian.org/debian-security/ $RELEASE/updates main
+#deb-src http://security.debian.org/debian-security/ $RELEASE/updates main
+#EOF
+
+# remove launcher from home desktop if not removed
+rm $CHROOT/home/*/*/install-debian.desktop || true
+
+# configure /etc/resolv.conf to use resolvconf daemon
+
+rm $CHROOT/etc/resolv.conf
+ln -s /run/resolvconf/resolv.conf $CHROOT/etc/resolv.conf
+
+# re-generate ssh host keys
+chroot $CHROOT sh -c 'dpkg -l openssh-server | grep -e "^ii" && (rm /etc/ssh/ssh_host_*; dpkg-reconfigure openssh-server)' || true
+chroot $CHROOT sh -c 'dpkg-reconfigure ssl-cert' || true
+
+# Disable openssh-server - now enabled by default since parrot 5.0
+chroot $CHROOT sh -c 'systemctl disable openssh-server' || true
+
+# unlock kernel packages
+chroot $CHROOT sh -c 'apt-mark showhold | while read pkg; do apt-mark unhold $pkg; done' || true
+exit 0

@@ -1,0 +1,27 @@
+# Live image
+# You always want these:
+parrot-core
+parrot-drivers
+calamares
+
+# Metapackages
+
+# Graphical desktop
+parrot-interface
+parrot-desktop-kde
+task-kde-desktop
+
+# Important Packages
+plank
+keyutils
+
+# Package
+
+# Excluded packages
+chromium-
+mate-user-guide-
+pocketsphinx-en-us-
+libreoffice-help-en-us-
+mythes-en-us-
+libreoffice-help-common-
+espeak-ng-data-

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Avoid configuring multiple times in case persistence is enabled
+if [ -e /var/lib/live/config/parrot-user-setup ]; then
+    exit 0
+fi
+
+# Set "plaguesec" as password for the user robot
+usermod -p '$2a$04$xQrz0w4ldhR1HZvO5Z4GN.ssBfTPdeN/EcvFb60Nl5ckIeF5ILFtC' robot
+
+# Add user to additional groups
+addgroup --system wireshark || true  # Ensures the group exists
+groups="adm,dialout,wireshark"
+usermod -a -G $groups robot
+
+# Remember that this script has been run
+touch /var/lib/live/config/parrot-user-setup

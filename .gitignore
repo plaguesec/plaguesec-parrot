@@ -1,0 +1,39 @@
+# Directories
+iot/work_dir/
+iot/images/
+rootfs/parrot-amd64/
+rootfs/parrot-arm64
+rootfs/parrot-armhf/
+rootfs/parrot-i386
+rootfs/images/*.xz
+.build/*
+binary/*
+binary.*/*
+cache/*
+chroot/*
+config/*
+images
+local/*
+simple-cdd/images/*
+simple-cdd/tmp/*
+# Files
+.mirror
+build.log
+chroot.files
+chroot.packages.install
+chroot.packages.live
+config/binary
+config/bootstrap
+config/common
+config/source
+live-image-*.contents
+live-image-*.files
+live-image-*.hybrid.iso.zsync
+live-image-*.packages
+# Overwritten due to build.sh
+simple-cdd/debian-cd/*
+simple-cdd/profiles/parrot.downloads
+# Miscellaneous
+.lock
+.stage
+prepare.log

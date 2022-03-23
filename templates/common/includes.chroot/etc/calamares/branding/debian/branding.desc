@@ -1,0 +1,27 @@
+---
+componentName:   debian
+welcomeStyleCalamares: true
+
+strings:
+    productName:         Plague Security
+    shortProductName:    PlagueSec OS
+    version:             1.0 (stable)
+    shortVersion:        1.0
+    versionedName:       PlagueSec OS 1.0 (stable)
+    shortVersionedName:  PlagueSec 1.0
+    bootloaderEntryName: PlagueSecurity
+    productUrl:          https://plaguesec.com
+    supportUrl:          https:/plaguesec.com
+    releaseNotesUrl:     https://plaguesec.com
+
+images:
+    productLogo:         "debian-logo.png"
+    productIcon:         "debian-logo.png"
+    productWelcome:      "welcome.jpg"
+
+slideshow:               "show.qml"
+
+style:
+   sidebarBackground:    "#2D2D2D"
+   sidebarText:          "#EEEEEE"
+   sidebarTextSelect:    "#4d7079"

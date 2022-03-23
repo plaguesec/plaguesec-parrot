@@ -1,0 +1,11 @@
+[org.kde.kdecoration2]
+BorderSize=Tiny
+BorderSizeAuto=false
+ButtonsOnLeft=MSH
+ButtonsOnRight=IAX
+CloseOnDoubleClickOnMenu=false
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__Fluent-dark
+
+[Desktops]
+Number=2
