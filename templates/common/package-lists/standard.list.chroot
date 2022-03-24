@@ -15,7 +15,6 @@ gpart
 bash-completion
 rng-tools5
 haveged
-neovim
 inxi
 htop
 nload
