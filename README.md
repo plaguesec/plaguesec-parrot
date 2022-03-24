@@ -33,7 +33,7 @@ $ cd plaguesec-os-x.x.x
 ```
 Now we need to install the requirements to build the operating system
 ```
-$ sudo apt install -y git simple-cdd cdebootstrap curl && sudo dpkg -i live-build_20210902_all.deb
+$ sudo apt install -y git simple-cdd cdebootstrap curl live-build
 ```
 Now let us Build The Operating System
 ```
@@ -48,7 +48,7 @@ $ cd plaguesec-os
 ```
 Now we need to install the requirements to build the operating system
 ```
-$ sudo apt install -y git simple-cdd cdebootstrap curl && sudo dpkg -i apt/live-build_20210902.deb
+$ sudo apt install -y git simple-cdd cdebootstrap curl live-build
 ```
 Now let us Build The Operating System
 ```
