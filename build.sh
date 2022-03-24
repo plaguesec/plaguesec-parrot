@@ -6,7 +6,8 @@ set -e
 set -o pipefail # Bashism
 
 DIST="parrot"
-VERSION="1.0"
+PLAGUESEC_VERSION="1.0"
+VERSION="5.0"
 VARIANT="default"
 IMAGE_TYPE="live"
 TARGET_DIR="$(dirname $0)/images"
@@ -36,7 +37,7 @@ live_image_name() {
 }
 
 installer_image_name() {
-	echo "architect/images/PlagueSecurity-$VERSION-$ARCH-DVD-1.iso"
+	echo "architect/images/PlagueSecurity-$PLAGUESEC_VERSION-$ARCH-DVD-1.iso"
 }
 
 target_image_name() {
@@ -49,15 +50,15 @@ target_image_name() {
 	fi
 	if [ "$IMAGE_TYPE" = "live" ]; then
 		if [ "$VARIANT" = "default" ]; then
-			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-${VERSION}_$ARCH.$IMAGE_EXT"
+			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-${PLAGUESEC_VERSION}_$ARCH.$IMAGE_EXT"
 		else
-			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-$VARIANT-${VERSION}_$ARCH.$IMAGE_EXT"
+			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-$VARIANT-${PLAGUESEC_VERSION}_$ARCH.$IMAGE_EXT"
 		fi
 	else
 		if [ "$VARIANT" = "default" ]; then
-			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-architect-DVD-${VERSION}_$ARCH.$IMAGE_EXT"
+			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-architect-DVD-${PLAGUESEC_VERSION}_$ARCH.$IMAGE_EXT"
 		else
-			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-architect-$VARIANT-${VERSION}_$ARCH.$IMAGE_EXT"
+			echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}PlagueSecurity-architect-$VARIANT-${PLAGUESEC_VERSION}_$ARCH.$IMAGE_EXT"
 		fi
 	fi
 }
@@ -183,7 +184,7 @@ if [ "$HOST_ARCH" != "$ARCH" ] && [ "$IMAGE_TYPE" != "installer" ]; then
 fi
 
 # Build parameters for lb config
-CONFIG_OPTS="--distribution $DIST -- --variant $VARIANT"
+CONFIG_OPTS="--distribution $DIST -- --variant $VARIANT --version $VERSION" 
 CODENAME=$DIST # for architect/debian-cd
 if [ -n "$OPT_pu" ]; then
 	CONFIG_OPTS="$CONFIG_OPTS --proposed-updates"
